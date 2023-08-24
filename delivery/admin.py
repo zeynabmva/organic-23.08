@@ -10,3 +10,12 @@ class DeliveryInformationAdmin(admin.ModelAdmin):
     search_fields = ('full_name', 'email')  # Axtarış üçün sahələr
 
 admin.site.register(DeliveryInformation, DeliveryInformationAdmin)
+
+
+from .models import CardInformation
+
+class CardInformationAdmin(admin.ModelAdmin):
+    list_display = ('email', 'card_number', 'exp_date', 'security_code')  # Görüntülənəcək sütunlar
+    
+
+admin.site.register(CardInformation, CardInformationAdmin)

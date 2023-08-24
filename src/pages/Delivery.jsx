@@ -24,7 +24,7 @@ function Delivery({ basket }) {
     e.preventDefault();
 
     try {
-      const response = await axios.post("/api/create-delivery/", formData);
+      const response = await axios.post("http://127.0.0.1:8000/api/create-delivery/", formData);
       console.log(response.data); // Serverdən gələn cavabı göstər
     } catch (error) {
       console.error(error);
@@ -50,7 +50,7 @@ function Delivery({ basket }) {
         <form method="post" onSubmit={handleSubmit}>
         <div data-aos="fade-up" className="form_row">
           <div className="form_form">
-            <label for="full_name" className="form_label">
+            <label htmlFor="full_name" className="form_label">
               Full Name*
             </label>
             <input
@@ -66,7 +66,7 @@ function Delivery({ basket }) {
             />
           </div>
           <div className="form_form">
-            <label for="email" className="form_label">
+            <label htmlFor="email" className="form_label">
               Email Address*
             </label>
             <input
@@ -84,13 +84,13 @@ function Delivery({ basket }) {
         </div>
         <div data-aos="fade-up" className="form_row">
           <div className="form_form">
-            <label for="address" className="form_label">
+            <label htmlFor="address" className="form_label">
               Address*
             </label>
             <input
               type="text"
               className="form_input"
-              maxlength="256"
+              maxLength="256"
               placeholder="Enter Address"
               id="address"
               // required
@@ -100,13 +100,13 @@ function Delivery({ basket }) {
             />
           </div>
           <div className="form_form">
-            <label for="city" className="form_label">
+            <label htmlFor="city" className="form_label">
               City*
             </label>
             <input
               type="text"
               className="form_input"
-              maxlength="256"
+              maxLength="256"
               placeholder="Enter City Name"
               id="city"
               // required
@@ -118,13 +118,13 @@ function Delivery({ basket }) {
         </div>
         <div data-aos="fade-up" className="form_row">
           <div className="form_form">
-            <label for="zip_code" className="form_label">
+            <label htmlFor="zip_code" className="form_label">
               Zip Code*
             </label>
             <input
               type="number"
               className="form_input"
-              maxlength="3"
+              maxLength="3"
               placeholder="Enter Zip Code"
               id="zip_code"
               
@@ -134,13 +134,13 @@ function Delivery({ basket }) {
             />
           </div>
           <div className="form_form">
-            <label for="phone" className="form_label">
+            <label htmlFor="phone" className="form_label">
               Phone*
             </label>
             <input
               type="number"
               className="form_input"
-              maxlength="12"
+              maxLength="12"
               placeholder="Enter Your Phone"
               id="phone"
               
@@ -152,12 +152,12 @@ function Delivery({ basket }) {
         </div>
 
         <div data-aos="fade-up" className="form_message">
-          <label for="message" className="form_label">
+          <label htmlFor="message" className="form_label">
             Message
           </label>
           <textarea
             placeholder="Hello There, I would like to..."
-            maxlength="5000"
+            maxLength="5000"
             id="message"
             className="input_textarea"
             

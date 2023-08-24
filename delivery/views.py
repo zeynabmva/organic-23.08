@@ -1,18 +1,26 @@
-from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import DeliveryInformationSerializer ,CardInformationSerializer
 
-# Create your views here.
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from .forms import DeliveryForm
+class CreateDeliveryInformation(APIView):
+    def post(self, request, format=None):
+        serializer = DeliveryInformationSerializer(data=request.data)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 
-@csrf_exempt
-def create_delivery(request):
-    if request.method == "POST":
-        form = DeliveryForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return JsonResponse({"message": "Delivery information created successfully"})
-        else:
-            return JsonResponse({"error": "Invalid form data"}, status=400)
-    else:
-        return JsonResponse({"error": "Invalid request method"}, status=405)
+
+class CreateCardInformation(APIView):
+    def post(self, request, format=None):
+        serializer = CardInformationSerializer(data=request.data)
+        
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -1272,7 +1272,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 50px;
+  padding-bottom: 30px;
 }
 
 .form_form {
@@ -2933,7 +2933,7 @@ header {
   margin-top: 50px;
 }
 .pay_modal_card_information .form_row {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   width: 100%;
 }
 .pay_modal_card_products {
